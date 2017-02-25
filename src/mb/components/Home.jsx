@@ -1,10 +1,8 @@
 import React from 'react';
 
-import LoLoMoRow from './LoLoMoRow';
+import HomeRow from './HomeRow';
 
-import '../res/lolomo.less';
-
-export default class LoLoMo extends React.Component {
+export default class Home extends React.Component {
   static propTypes = {
     models: React.PropTypes.shape({}).isRequired
   }
@@ -12,10 +10,10 @@ export default class LoLoMo extends React.Component {
   render() {
     const rows = Object.keys(this.props.models).map((key) => {
       const model = this.props.models[key];
-      return <LoLoMoRow key={key} model={model} />;
+      return <HomeRow key={key} model={model} />;
     });
     return (
-      <div className="mb-lolomo">
+      <div className="mb-home">
         { rows }
       </div>
     );

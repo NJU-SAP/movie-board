@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import LoLoMo from '../components/LoLoMo';
+import Home from '../components/Home';
 import actionCreators from '../actions/models-action-creators.js';
-
-import '../res/home-page.less';
 
 
 @connect(
@@ -37,7 +35,7 @@ export default class HomePage extends React.Component {
   render() {
     return (
       <div className="mb-page mb-home-page">
-        <LoLoMo models={this.props.models} />
+        <Home models={this.props.models} />
       </div>
     );
   }
