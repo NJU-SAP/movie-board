@@ -1,4 +1,5 @@
-const API_URL = 'http://api.douban.com/v2/movie';
+// const API_URL = 'http://api.douban.com/v2/movie';
+const API_URL = '/api/v2/movie';
 const API_KEY = '0df993c66c0c636e29ecbb5344252a4a';
 
 

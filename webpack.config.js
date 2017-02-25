@@ -18,6 +18,16 @@ module.exports = {
     hot: false,
     hotOnly: false,
     contentBase: path.resolve(__dirname, 'public'),
+    proxy: {
+      '/api': {
+        target: 'http://api.douban.com/',
+        changeOrigin: true,
+        pathRewrite: { '^/api': '' }
+      }
+    },
+    stats: {
+      chunks: false,
+    }
   },
   resolve: {
     extensions: ['.js', '.jsx'],
