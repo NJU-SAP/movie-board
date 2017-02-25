@@ -8,13 +8,11 @@ import { configRoutes } from './routes';
 
 const store = configStore();
 
-$(() => {
-  render(
-    <Provider store={store}>
-      <Router history={browserHistory}>
-        {configRoutes()}
-      </Router>
-    </Provider>,
-    document.getElementById('mbMountPoint')
-  );
-});
+render(
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      {configRoutes()}
+    </Router>
+  </Provider>,
+  document.getElementById('mbMountPoint')
+);

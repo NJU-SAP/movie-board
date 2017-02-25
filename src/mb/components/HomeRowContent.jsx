@@ -1,23 +1,15 @@
 import React from 'react';
 
+import MovieCover from './MovieCover';
+
 export default function HomeRowContent(props) {
-  const images = props.movies.map((movie) => {
-    const imageStyle = {
-      backgroundImage: `url(${movie.images.large})`
-    };
-    return (
-      <div
-        className="movie-cover"
-        key={movie.id}
-        style={imageStyle}
-        alt="movie cover"
-      />
-    );
-  });
+  const covers = props.movies
+    .slice(0, 20)
+    .map(movie => <MovieCover key={movie.id} movie={movie} />);
   return (
     <div className="mb-home-row-content">
       <div className="movie-covers">
-        {images}
+        {covers}
       </div>
     </div>
   );
