@@ -1,9 +1,9 @@
 import React from 'react';
 
 export default function HomeRowContent(props) {
-  const images = props.movies.map(movie => {
+  const images = props.movies.map((movie) => {
     const imageStyle = {
-      backgroundImage: `url(${movie.images.medium})`
+      backgroundImage: `url(${movie.images.large})`
     };
     return (
       <div
@@ -12,7 +12,7 @@ export default function HomeRowContent(props) {
         style={imageStyle}
         alt="movie cover"
       />
-    )
+    );
   });
   return (
     <div className="mb-home-row-content">
@@ -24,5 +24,5 @@ export default function HomeRowContent(props) {
 }
 
 HomeRowContent.propTypes = {
-  moview: React.PropTypes.array.isRequired
+  movies: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 };

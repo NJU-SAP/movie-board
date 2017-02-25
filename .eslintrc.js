@@ -25,6 +25,9 @@ module.exports = {
     ],
     "import/no-extraneous-dependencies": [
       "off"
+    ],
+    "no-multi-assign": [
+      "off"
     ]
   },
   "globals": {
