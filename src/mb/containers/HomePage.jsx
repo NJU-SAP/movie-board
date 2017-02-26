@@ -11,24 +11,26 @@ import actionCreators from '../actions/models-action-creators';
 )
 export default class HomePage extends React.Component {
   static propTypes = {
-    models: React.PropTypes.shape({}),
+    models: React.PropTypes.shape({
+      inTheaters: React.PropTypes.object,
+      comingSoon: React.PropTypes.object
+    }),
     loadComingSoon: React.PropTypes.func.isRequired,
-    loadInTheaters: React.PropTypes.func.isRequired,
+    loadInTheaters: React.PropTypes.func.isRequired
   }
 
   static defaultProps = {
     models: { inTheaters: { count: 0 }, comingSoon: { count: 0 } }
   }
 
-  componentDidMount() {
-    this.props.loadInTheaters();
-    this.props.loadComingSoon();
-  }
-
   render() {
+    const loaders = {
+      inTheaters: this.props.loadInTheaters,
+      comingSoon: this.props.loadComingSoon
+    };
     return (
       <div className="mb-page mb-home-page">
-        <Home models={this.props.models} />
+        <Home models={this.props.models} loaders={loaders} />
       </div>
     );
   }

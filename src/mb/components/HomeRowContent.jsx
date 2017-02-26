@@ -16,5 +16,9 @@ export default function HomeRowContent(props) {
 }
 
 HomeRowContent.propTypes = {
-  movies: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+  movies: React.PropTypes.arrayOf(React.PropTypes.object)
+};
+
+HomeRowContent.defaultProps = {
+  movies: []
 };
