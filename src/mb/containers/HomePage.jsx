@@ -1,19 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Home from '../components/Home';
 import actionCreators from '../actions/models-action-creators';
 
 @connect(
   state => ({ models: state.models }),
-  dipatch => ({
-    loadComingSoon() {
-      dipatch(actionCreators.loadComingSoon());
-    },
-    loadInTheaters() {
-      dipatch(actionCreators.loadInTheaters());
-    }
-  })
+  dispatch => bindActionCreators(actionCreators, dispatch)
 )
 export default class HomePage extends React.Component {
   static propTypes = {

@@ -19,5 +19,14 @@ export default handleActions({
       ...state,
       comingSoon: action.payload
     };
+  },
+  [actionCreators.loadMovie](state, action) {
+    return {
+      ...state,
+      movies: {
+        ...state.movies,
+        [action.payload.id]: action.payload
+      }
+    };
   }
 }, initialState);
