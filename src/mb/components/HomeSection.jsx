@@ -15,7 +15,7 @@ export default class HomeRow extends React.Component {
       .slice(0, 20)
       .map(movie => <MovieCover key={movie.id} movie={movie} />);
     return (
-      <div className="mb-home-section-content">
+      <div className="section-content">
         <div className="movie-covers">
           {covers}
         </div>
