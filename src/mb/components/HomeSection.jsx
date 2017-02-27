@@ -4,6 +4,21 @@ import SectionHeader from './SectionHeader';
 import MovieCover from './MovieCover';
 
 export default class HomeRow extends React.Component {
+  static propTypes = {
+    loader: React.PropTypes.func.isRequired,
+    model: React.PropTypes.shape({
+      count: React.PropTypes.isRequired,
+      subjects: React.PropTypes.array,
+      title: React.PropTypes.string
+    })
+  };
+
+  static defaultProps = {
+    model: {
+      subjects: []
+    }
+  };
+
   componentDidMount() {
     if (!this.props.model.title) {
       this.props.loader();
@@ -32,12 +47,3 @@ export default class HomeRow extends React.Component {
     );
   }
 }
-
-HomeRow.propTypes = {
-  loader: React.PropTypes.func.isRequired,
-  model: React.PropTypes.shape({
-    count: React.PropTypes.isRequired,
-    subjects: React.PropTypes.array,
-    title: React.PropTypes.string
-  }).isRequired
-};
