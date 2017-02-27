@@ -11,6 +11,9 @@ module.exports = {
     "node": true
   },
   "rules": {
+    "linebreak-style": [
+      "off"
+    ],
     "no-underscore-dangle": [
       "off"
     ],
