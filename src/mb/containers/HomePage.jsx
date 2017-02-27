@@ -16,7 +16,8 @@ export default class HomePage extends React.Component {
       comingSoon: React.PropTypes.object
     }),
     loadComingSoon: React.PropTypes.func.isRequired,
-    loadInTheaters: React.PropTypes.func.isRequired
+    loadInTheaters: React.PropTypes.func.isRequired,
+    loadTop250: React.PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -26,7 +27,8 @@ export default class HomePage extends React.Component {
   render() {
     const loaders = {
       inTheaters: this.props.loadInTheaters,
-      comingSoon: this.props.loadComingSoon
+      comingSoon: this.props.loadComingSoon,
+      top250: this.props.loadTop250
     };
     return (
       <div className="mb-page mb-home-page">

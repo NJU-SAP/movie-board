@@ -20,6 +20,12 @@ export default handleActions({
       comingSoon: action.payload
     };
   },
+  [actionCreators.loadTop250](state, action) {
+    return {
+      ...state,
+      top250: action.payload
+    };
+  },
   [actionCreators.loadMovie](state, action) {
     return {
       ...state,
