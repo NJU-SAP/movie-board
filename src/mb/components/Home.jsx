@@ -16,6 +16,5 @@ export default function Home(props) {
 }
 
 Home.propTypes = {
-  models: React.PropTypes.shape({}).isRequired,
   loaders: React.PropTypes.shape({}).isRequired
 };
