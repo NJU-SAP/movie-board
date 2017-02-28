@@ -21,7 +21,18 @@ export default class NavigationSlider extends Component {
 
   _createTagItem = (item, index) => {
     const classname = classnames('movie-tag', (this.state.selected === index ? 'selected' : ''));
-    return (<li key={`navigation-slider-tag-${index}`} data-index={index} className={classname}>{item}</li>);
+    return (<li
+      key={`navigation-slider-tag-${index}`}
+      data-index={index} className={classname}
+      onClick={this._handleClick}
+    >{item}</li>);
+  }
+
+  _handleClick = (e) => {
+    const index = parseInt(e.currentTarget.dataset.index, 0);
+    if (index >= 0) {
+      this.setState({ selected: index });
+    }
   }
 
   render() {

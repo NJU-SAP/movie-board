@@ -40,7 +40,8 @@ export default class AppHeader extends React.PureComponent {
         <div className="header-left">
           <div className="header-icons">
             <Icon
-              iconName="grabber"
+              className="nav-show-btn"
+              iconName="three-bars"
               onClick={() => { this.handleNavigationSliderShow(); }}
             />
             <div className="mb-logo" />
