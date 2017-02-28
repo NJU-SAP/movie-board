@@ -1,11 +1,16 @@
 import cn from 'classnames';
 import React from 'react';
 
+import Icon from './Icon';
+import NavigationSlider from './NavigationSlider';
+import Search from './Search';
+
 export default class AppHeader extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      translucent: false
+      translucent: false,
+      open: false,
     };
   }
 
@@ -21,11 +26,28 @@ export default class AppHeader extends React.PureComponent {
     });
   }
 
+  handleNavigationSliderShow() {
+    console.log("11");
+    this.setState({
+      open: !this.state.open,
+    });
+  }
+
   render() {
     const className = cn('mb-app-header', { translucent: this.state.translucent });
     return (
       <header className={className}>
-        <div className="mb-logo" />
+        <div className="header-left">
+          <div className="header-icons">
+            <Icon
+              iconName="grabber"
+              onClick={() => { this.handleNavigationSliderShow(); }}
+            />
+            <div className="mb-logo" />
+          </div>
+          <NavigationSlider open={this.state.open} />
+        </div>
+        <Search className="mb-header-search" placeholder="搜索" />
       </header>
     );
   }
