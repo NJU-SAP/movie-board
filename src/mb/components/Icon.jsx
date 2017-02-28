@@ -7,6 +7,7 @@ export default function Icon(props) {
     <span
       className={cn('icon', 'octicon', `octicon-${props.iconName}`, props.className)}
       title={props.iconName}
+      onClick={props.onClick}
     />
   );
 }
@@ -14,6 +15,7 @@ export default function Icon(props) {
 Icon.propTypes = {
   className: React.PropTypes.string,
   iconName: React.PropTypes.string.isRequired,
+  onClick: React.PropTypes.func,
 };
 
 Icon.defaultProps = {
