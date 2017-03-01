@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { browserHistory } from 'react-router';
 import classnames from 'classnames';
 
 export default class Search extends Component {
@@ -12,34 +13,34 @@ export default class Search extends Component {
     placeholder: '',
   };
 
-  constructor(props) {
-    super(props);
-    this.inputTimer = null;
-  }
-
   state = {
     value: '',
   };
 
   _inputOnChange(e) {
     const value = e.currentTarget.value;
-    if (this.inputTimer) {
-      clearTimeout(this.inputTimer);
-      this.inputTimer = null;
-    }
-    this.inputTimer = setTimeout(() => {
-      this.setState({
-        value
+    this.setState({
+      value
+    });
+  }
+
+  _handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.value.length > 0) {
+      browserHistory.push({
+        pathname: '/search',
+        search: `?value=${this.state.value}`
       });
-    }, 300);
+    }
   }
 
   render() {
-    return (<input
-      className="mb-header-search"
-      value={this.state.value}
-      placeholder={this.props.placeholder}
-      onChange={(e) => { this._inputOnChange(e); }}
-    />);
+    return (<form onSubmit={(e) => { this._handleSubmit(e); }}>
+      <input
+        className="mb-header-search"
+        value={this.state.value}
+        placeholder={this.props.placeholder}
+        onChange={(e) => { this._inputOnChange(e); }}
+      /></form>);
   }
 }

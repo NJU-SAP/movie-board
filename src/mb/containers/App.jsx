@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import AppHeader from '../components/AppHeader';
 import AppFooter from '../components/AppFooter';
