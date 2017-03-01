@@ -9,28 +9,8 @@
 }
 
 .mb-app {
+  @mb-app-header-height: 60px;
   width: 100%;
   padding: @mb-app-header-height 20px 0 20px;
-
-  @mb-app-header-height: 60px;
-  .mb-app-header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    padding: 10px 20px;
-    height: @mb-app-header-height;
-    transition: background 0.5s;
-
-    &.translucent {
-      background: rgba(0, 0, 0, 0.8);
-    }
-  }
-}
-
-.mb-logo {
-  width: 157px;
-  height: 40px;
-  background: url('images/mb-logo.png') no-repeat;
-  background-size: contain;
+  color: @mb-font-color;
 }

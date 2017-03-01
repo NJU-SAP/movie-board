@@ -64,6 +64,10 @@ module.exports = {
           'extract-loader',
           'html-loader'
         ]
+      },
+      {
+        test: /\.(eot|ttf|woff|svg)$/,
+        use: ['file-loader']
       }
     ]
   },
