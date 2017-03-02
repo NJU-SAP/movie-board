@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 export default function MovieCover(props) {
   return (
-    <Link to={props.movie.id}>
+    <Link to={`movie/${props.movie.id}`}>
       <div
         className="movie-cover"
         style={{ backgroundImage: `url(${props.movie.images.large})` }}

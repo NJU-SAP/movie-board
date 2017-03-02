@@ -2,6 +2,7 @@ import React from 'react';
 
 import SectionHeader from './SectionHeader';
 import MovieCover from './MovieCover';
+import topicNames from '../constants/topics';
 
 export default class HomeRow extends React.Component {
   static propTypes = {
@@ -10,7 +11,8 @@ export default class HomeRow extends React.Component {
       count: React.PropTypes.isRequired,
       subjects: React.PropTypes.array,
       title: React.PropTypes.string
-    })
+    }),
+    topic: React.PropTypes.string.isRequired
   };
 
   static defaultProps = {
@@ -41,7 +43,7 @@ export default class HomeRow extends React.Component {
   render() {
     return (
       <div className="mb-home-section">
-        <SectionHeader title={this.props.model.title} />
+        <SectionHeader title={topicNames[this.props.topic]} />
         {this.renderSectionContent()}
       </div>
     );
