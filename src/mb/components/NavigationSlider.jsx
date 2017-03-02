@@ -1,51 +1,51 @@
 import classnames from 'classnames';
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
 export default class NavigationSlider extends Component {
-  static propType = {
+  static propTypes = {
+    selected: PropTypes.string,
+    topics: PropTypes.arrayOf(PropTypes.string),
     open: PropTypes.bool.isRequired,
+    toggle: PropTypes.func.isRequired
   };
 
   static defaultProps = {
-    open: null,
+    selected: '',
+    topics: ['', 'inTheaters', 'commingSoon', 'top250']
   };
 
-  constructor(props) {
-    super(props);
-    this.tags = ['主页', '正在热映', '即将上映', 'TOP250'];
+  handleTopicClick = () => {
+    this.props.toggle();
   }
 
-  state = {
-    selected: 0,
-  }
-
-  _createTagItem = (item, index) => {
-    const classname = classnames('movie-tag', (this.state.selected === index ? 'selected' : ''));
-    return (<li
-      key={`navigation-slider-tag-${index}`}
-      data-index={index} className={classname}
-      onClick={this._handleClick}
-    >{item}</li>);
-  }
-
-  _handleClick = (e) => {
-    const index = parseInt(e.currentTarget.dataset.index, 0);
-    if (index >= 0) {
-      this.setState({ selected: index });
-    }
-  }
+  renderTopicItem = (Topic, index) => {
+    const classname = classnames('movie-tag', { selected: this.props.selected === Topic });
+    return (
+      <li  // eslint-disable-line jsx-a11y/no-static-element-interactions
+        key={`navigation-slider-tag-${index}`}
+        data-index={index}
+        className={classname}
+        onClick={this.handleTopicClick}
+      >
+        <Link>{Topic}</Link>
+      </li>
+    );
+  };
 
   render() {
-    const tags = this.tags.map(this._createTagItem);
-    return (<div className={classnames('mb-navigation-slider', (this.props.open ? 'open' : ''))}>
-      <ol className="navigation-user-list">
-        <li className="user-info">username</li>
-        <li className="user-info-link">您的账号</li>
-        <li className="user-logout">登出 Netflix</li>
-      </ol>
-      <ol className="navigation-category-list">
-        {tags}
-      </ol>
-    </div>);
+    const tags = this.props.topics.map(this.renderTopicItem);
+    return (
+      <div className={classnames('mb-navigation-slider', { open: this.props.open })}>
+        <ol className="navigation-user-list">
+          <li className="user-info">username</li>
+          <li className="user-info-link">您的账号</li>
+          <li className="user-logout">登出 Netflix</li>
+        </ol>
+        <ol className="navigation-category-list">
+          {tags}
+        </ol>
+      </div>
+    );
   }
 }
