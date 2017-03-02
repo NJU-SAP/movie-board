@@ -2,6 +2,8 @@ import classnames from 'classnames';
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
+import topicNames from '../constants/topics';
+
 export default class NavigationSlider extends Component {
   static propTypes = {
     selected: PropTypes.string,
@@ -12,15 +14,16 @@ export default class NavigationSlider extends Component {
 
   static defaultProps = {
     selected: '',
-    topics: ['', 'inTheaters', 'commingSoon', 'top250']
+    topics: ['', 'inTheaters', 'comingSoon', 'top250']
   };
 
   handleTopicClick = () => {
     this.props.toggle();
   }
 
-  renderTopicItem = (Topic, index) => {
-    const classname = classnames('movie-tag', { selected: this.props.selected === Topic });
+  renderTopicItem = (topic, index) => {
+    const classname = classnames('movie-tag', { selected: this.props.selected === topic });
+    const href = topic ? `topic/${topic}` : '/';
     return (
       <li  // eslint-disable-line jsx-a11y/no-static-element-interactions
         key={`navigation-slider-tag-${index}`}
@@ -28,7 +31,9 @@ export default class NavigationSlider extends Component {
         className={classname}
         onClick={this.handleTopicClick}
       >
-        <Link>{Topic}</Link>
+        <Link to={href}>
+          {topicNames[topic]}
+        </Link>
       </li>
     );
   };

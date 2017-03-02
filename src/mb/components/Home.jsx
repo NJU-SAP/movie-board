@@ -6,7 +6,7 @@ export default function Home(props) {
   const rows = Object.keys(props.loaders).map((key) => {
     const model = props.models[key];
     const loader = props.loaders[key];
-    return <HomeSection key={key} model={model} loader={loader} />;
+    return <HomeSection key={key} model={model} loader={loader} topic={key} />;
   });
   return (
     <div className="mb-home">
