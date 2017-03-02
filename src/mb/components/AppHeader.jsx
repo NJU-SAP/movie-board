@@ -26,9 +26,15 @@ export default class AppHeader extends React.PureComponent {
     });
   }
 
-  handleNavigationSliderShow = () => {
+  handleNavigationSliderToggle = () => {
     this.setState({
       open: !this.state.open,
+    });
+  }
+
+  handleNavigationSliderHide = () => {
+    this.setState({
+      open: false
     });
   }
 
@@ -41,11 +47,15 @@ export default class AppHeader extends React.PureComponent {
             <Icon
               className="nav-show-btn"
               iconName="three-bars"
-              onClick={this.handleNavigationSliderShow}
+              onClick={this.handleNavigationSliderToggle}
             />
             <div className="mb-logo" />
           </div>
-          <NavigationSlider open={this.state.open} toggle={this.handleNavigationSliderShow} />
+          <div
+            className={cn('background', { active: this.state.open })}
+            onClick={() => this.handleNavigationSliderHide()}
+          />
+          <NavigationSlider open={this.state.open} toggle={this.handleNavigationSliderToggle} />
         </div>
         <Search className="mb-header-search" placeholder="搜索" />
       </header>

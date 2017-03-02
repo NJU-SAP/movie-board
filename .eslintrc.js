@@ -31,6 +31,9 @@ module.exports = {
     ],
     "no-multi-assign": [
       "off"
+    ],
+    "jsx-a11y/no-static-element-interactions": [
+      "off"
     ]
   },
   "globals": {

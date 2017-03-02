@@ -25,7 +25,7 @@ export default class NavigationSlider extends Component {
     const classname = classnames('movie-tag', { selected: this.props.selected === topic });
     const href = topic ? `topic/${topic}` : '/';
     return (
-      <li  // eslint-disable-line jsx-a11y/no-static-element-interactions
+      <li
         key={`navigation-slider-tag-${index}`}
         data-index={index}
         className={classname}

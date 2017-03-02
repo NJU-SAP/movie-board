@@ -2,29 +2,35 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import Movie from '../components/Movie';
+
 import actionCreators from '../actions/models-action-creators';
 
 @connect(
-  state => ({ models: state.models }),
-  dispatch => bindActionCreators(actionCreators, dispatch)
+  (state, ownProps) => ({
+    movie: state.models.movies[ownProps.params.movieId],
+    movieId: ownProps.params.movieId
+  }),
+  dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) })
 )
 export default class MoviePage extends React.Component {
   static propTypes = {
-    loadMovie: React.PropTypes.func.isRequired,
-    params: React.PropTypes.shape({
-      movieId: React.PropTypes.string.isRequired
+    movieId: React.PropTypes.string.isRequired,
+    movie: React.PropTypes.object,
+    actions: React.PropTypes.shape({
+      loadMovie: React.PropTypes.func
     }).isRequired
-  };
+  }
 
-  componentDidMount() {
-    this.props.loadMovie(this.props.params.movieId);
+  static defaultProps = {
   }
 
   render() {
     return (
-      <div>
-        <h1>Movie selected, {this.props.params.movieId}</h1>
+      <div className="mb-movie">
+        <Movie movie={this.props.movie} movieId={this.props.movieId} actions={this.props.actions} />
       </div>
     );
   }
+
 }

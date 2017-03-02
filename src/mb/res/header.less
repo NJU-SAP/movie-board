@@ -1,5 +1,6 @@
 .mb-app-header {
   position: fixed;
+  z-index: 10;
   left: 0;
   right: 0;
   top: 0;
@@ -9,7 +10,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
 
   &.translucent {
     background: rgba(0, 0, 0, 0.8);
@@ -34,10 +37,23 @@
       }
 
       > .mb-logo {
-        width: 157px;
+        width: 120px;
         height: 40px;
         background: url('images/mb-logo.png') no-repeat;
         background-size: contain;
+      }
+    }
+    > .background {
+      display: none;
+      position: fixed;
+      top: 50px;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,.4);
+
+      &.active {
+        display: block;
       }
     }
   }

@@ -4,7 +4,8 @@ import actionCreators from '../actions/models-action-creators';
 
 const initialState = {
   inTheaters: { count: 0, subjects: [] },
-  comingSoon: { count: 0, subjects: [] }
+  comingSoon: { count: 0, subjects: [] },
+  movies: { }
 };
 
 export default handleActions({
