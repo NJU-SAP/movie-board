@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function HomeRowHead(props) {
   return (
-    <div className="mb-section-header">
-      <h2>{props.title}</h2>
+    <div>
+      <h2 className="mb-section-header">{props.title}</h2>
     </div>
   );
 }
