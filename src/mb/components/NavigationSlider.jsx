@@ -9,7 +9,8 @@ export default class NavigationSlider extends Component {
     selected: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired
+    toggle: PropTypes.func.isRequired,
+    match: PropTypes.object.isRequired
   };
 
   static defaultProps = {

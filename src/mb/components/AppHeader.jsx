@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
+import { Route } from 'react-router';
 
 import Icon from './Icon';
 import NavigationSlider from './NavigationSlider';
@@ -40,6 +41,7 @@ export default class AppHeader extends React.PureComponent {
 
   render() {
     const className = cn('mb-app-header', { translucent: this.state.translucent });
+
     return (
       <header className={className}>
         <div className="header-left">
@@ -55,7 +57,7 @@ export default class AppHeader extends React.PureComponent {
             className={cn('background', { active: this.state.open })}
             onClick={() => this.handleNavigationSliderHide()}
           />
-          <NavigationSlider open={this.state.open} toggle={this.handleNavigationSliderToggle} />
+          <Route path="*" render={(props) => <NavigationSlider {...props} open={this.state.open} toggle={this.handleNavigationSliderToggle} />} />
         </div>
         <Search className="mb-header-search" placeholder="搜索" />
       </header>
