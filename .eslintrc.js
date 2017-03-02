@@ -34,6 +34,9 @@ module.exports = {
     ],
     "jsx-a11y/no-static-element-interactions": [
       "off"
+    ],
+    "react/forbid-prop-types": [
+      "off"
     ]
   },
   "globals": {
