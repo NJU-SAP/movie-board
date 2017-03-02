@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 
 export default function MovieCover(props) {
   return (
-    <Link to={`movie/${props.movie.id}`}>
-      <div
-        className="movie-cover"
-        style={{ backgroundImage: `url(${props.movie.images.large})` }}
-        alt="movie cover"
-      />
-    </Link>
+    <li>
+      <Link to={`movie/${props.movie.id}`}>
+        <div
+          className="movie-cover"
+          style={{ backgroundImage: `url(${props.movie.images.large})` }}
+          alt="movie cover"
+        />
+      </Link>
+    </li>
   );
 }
 

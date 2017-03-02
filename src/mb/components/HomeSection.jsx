@@ -33,9 +33,9 @@ export default class HomeRow extends React.Component {
       .map(movie => <MovieCover key={movie.id} movie={movie} />);
     return (
       <div className="section-content">
-        <div className="movie-covers">
+        <ul className="movie-covers">
           {covers}
-        </div>
+        </ul>
       </div>
     );
   }
