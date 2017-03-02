@@ -8,8 +8,8 @@ import actionCreators from '../actions/models-action-creators';
 
 @connect(
   (state, ownProps) => ({
-    movie: state.models.movies[ownProps.params.movieId],
-    movieId: ownProps.params.movieId
+    movie: state.models.movies[ownProps.match.params.movieId],
+    movieId: ownProps.match.params.movieId
   }),
   dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) })
 )
@@ -32,5 +32,4 @@ export default class MoviePage extends React.Component {
       </div>
     );
   }
-
 }

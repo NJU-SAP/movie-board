@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexRoute, Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 
 import App from './containers/App';
 import HomePage from './containers/HomePage';
@@ -8,12 +8,15 @@ import SearchPage from './containers/SearchPage';
 import TopicPage from './containers/TopicPage';
 
 export default function configRoutes() {
+  // <IndexRoute component={HomePage} />
   return (
-    <Route path="/" component={App}>
-      <IndexRoute component={HomePage} />
-      <Route path="/search" component={SearchPage} />
-      <Route path="/movie/:movieId" component={MoviePage} />
-      <Route path="/topic/:topic" component={TopicPage} />
-    </Route>
+    <App>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/search" component={SearchPage} />
+        <Route path="/movie/:movieId" component={MoviePage} />
+        <Route path="/topic/:topic" component={TopicPage} />
+      </Switch>
+    </App>
   );
 }
