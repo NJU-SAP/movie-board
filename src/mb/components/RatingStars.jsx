@@ -10,7 +10,7 @@ export default function RatingStars(props) {
     if (stars - i >= 10) {
       starsElement.push(<Icon iconName="star" className="star" key={i} />);
     } else if (stars - i === 5) {
-      starsElement.push(<div className="icon octicon octicon-star half-star" key={i}><div className="icon octicon octicon-star inner-star" /></div>);
+      starsElement.push(<div className="icon octicon half-star" key={i}></div>);
     } else {
       starsElement.push(<Icon iconName="star" className="zero-star" key={i} />);
     }
