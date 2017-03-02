@@ -31,11 +31,8 @@ export default class Search extends Component {
   render() {
     if (this.props.searchResult) {
       return (<div className="mb-search-page">
-        <Icon iconName="star" />
       </div>);
     }
-    return (<div className="mb-search-page">
-      <Icon iconName="star" />
-    </div>);
+    return null;
   }
 }
