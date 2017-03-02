@@ -14,8 +14,8 @@ export default function configRoutes() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/search" component={SearchPage} />
-        <Route path="/movie/:movieId" component={MoviePage} />
         <Route path="/topic/:topic" component={TopicPage} />
+        <Route path="/movie/:movieId" component={MoviePage} />
       </Switch>
     </App>
   );

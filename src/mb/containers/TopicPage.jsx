@@ -8,22 +8,21 @@ import actionCreators from '../actions/models-action-creators';
   state => ({ models: state.models }),
   dispatch => bindActionCreators(actionCreators, dispatch)
 )
-export default class MoviePage extends React.Component {
+export default class TopicPage extends React.Component {
   static propTypes = {
-    loadMovie: React.PropTypes.func.isRequired,
-    params: React.PropTypes.shape({
-      movieId: React.PropTypes.string.isRequired
-    }).isRequired
+    // loadMovie: React.PropTypes.func.isRequired,
+    // params: React.PropTypes.shape({
+    //   movieId: React.PropTypes.string.isRequired
+    // }).isRequired
   };
 
   componentDidMount() {
-    this.props.loadMovie(this.props.params.movieId);
   }
 
   render() {
     return (
       <div>
-        <h1>Movie selected, {this.props.params.movieId}</h1>
+        Under construction
       </div>
     );
   }

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import actionCreators from '../actions/search-action-creators';
-import SearchPage from '../components/SearchPage';
 
 @connect(
   (state, ownProps) => ({
@@ -12,7 +11,7 @@ import SearchPage from '../components/SearchPage';
   }),
   dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) })
 )
-export default class MoviePage extends React.Component {
+export default class SearchPage extends React.Component {
   static propTypes = {
     searchResult: React.PropTypes.array,
     searchValue: React.PropTypes.string.isRequired,

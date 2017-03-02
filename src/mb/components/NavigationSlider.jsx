@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 
 import topicNames from '../constants/topics';
 
+const topicRegex = /\/[^\/]+\/([^\/]+)/;
+
 export default class NavigationSlider extends Component {
   static propTypes = {
-    selected: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
@@ -14,7 +15,6 @@ export default class NavigationSlider extends Component {
   };
 
   static defaultProps = {
-    selected: '',
     topics: ['', 'inTheaters', 'comingSoon', 'top250']
   };
 
@@ -23,8 +23,8 @@ export default class NavigationSlider extends Component {
   }
 
   renderTopicItem = (topic, index) => {
-    const classname = classnames('movie-tag', { selected: this.props.selected === topic });
-    const href = topic ? `topic/${topic}` : '/';
+    const classname = classnames('movie-tag', { selected: this.selected === topic });
+    const href = topic ? `/topic/${topic}` : '/';
     return (
       <li
         key={`navigation-slider-tag-${index}`}
@@ -40,6 +40,8 @@ export default class NavigationSlider extends Component {
   };
 
   render() {
+    const match = topicRegex.exec(this.props.match.url);
+    this.selected = match ? match[1] : '';
     const tags = this.props.topics.map(this.renderTopicItem);
     return (
       <div className={classnames('mb-navigation-slider', { open: this.props.open })}>
