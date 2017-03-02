@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Icon from './Icon';
 import classnames from 'classnames';
 
 export default class Search extends Component {
@@ -29,8 +30,12 @@ export default class Search extends Component {
 
   render() {
     if (this.props.searchResult) {
-      return (<div className="mb-search-page">{this.props.searchResult.toString()}</div>);
+      return (<div className="mb-search-page">
+        <Icon iconName="star" />
+      </div>);
     }
-    return null;
+    return (<div className="mb-search-page">
+      <Icon iconName="star" />
+    </div>);
   }
 }
