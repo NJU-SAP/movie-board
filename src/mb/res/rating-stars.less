@@ -1,0 +1,28 @@
+@import 'variables';
+
+@gray-text-color: #999;
+
+.mb-rating-stars {
+  display: inline-block;
+  .star {
+    color: @mb-theme-color
+  }
+  .half-star {
+    position: relative;
+    z-index: 0;
+    color: darken(@gray-text-color, 25%);
+
+    .inner-star {
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0.45em;
+      color: @mb-theme-color;
+      overflow: hidden;
+    }
+  }
+  .zero-star {
+    color: darken(@gray-text-color, 25%)
+  }
+}
