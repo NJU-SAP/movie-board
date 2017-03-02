@@ -27,9 +27,14 @@ export default class AppHeader extends React.PureComponent {
   }
 
   handleNavigationSliderShow() {
-    console.log("11");
     this.setState({
       open: !this.state.open,
+    });
+  }
+
+  handleNavigationSliderHide() {
+    this.setState({
+      open: false
     });
   }
 
@@ -46,6 +51,7 @@ export default class AppHeader extends React.PureComponent {
             />
             <div className="mb-logo" />
           </div>
+          <div className={cn('background', (this.state.open ? 'active' : ''))} onClick={() => this.handleNavigationSliderHide()} />
           <NavigationSlider open={this.state.open} />
         </div>
         <Search className="mb-header-search" placeholder="搜索" />

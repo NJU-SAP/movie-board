@@ -40,5 +40,18 @@
         background-size: contain;
       }
     }
+    > .background {
+      display: none;
+      position: fixed;
+      top: 50px;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,.4);
+
+      &.active {
+        display: block;
+      }
+    }
   }
 }
