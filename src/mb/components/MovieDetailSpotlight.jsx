@@ -26,8 +26,6 @@ export default class MovieDetailSpotlight extends React.Component {
   render() {
     const style = {
       backgroundImage: `-webkit-linear-gradient(left, rgba(0,0,0,1) 28%, rgba(20,20,20,0)), url('${this.props.movie.trailers[0].medium}')`,
-      // backgroundImage: `-0-linear-gradient(left, rgba(0,0,0,1) 28%, rgba(20,20,20,0)), url('${this.props.movie.trailers[0].medium}')`,
-      // backgroundImage: `linear-gradient(left, rgba(0,0,0,1) 28%, rgba(20,20,20,0)), url('${this.props.movie.trailers[0].medium}')`
     };
     return (
       <div className="movie-detail-spotlight" style={style}>
