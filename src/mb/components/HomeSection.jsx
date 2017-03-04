@@ -8,9 +8,7 @@ export default class HomeRow extends React.Component {
   static propTypes = {
     loader: React.PropTypes.func.isRequired,
     model: React.PropTypes.shape({
-      count: React.PropTypes.isRequired,
       subjects: React.PropTypes.array,
-      title: React.PropTypes.string
     }),
     topic: React.PropTypes.string.isRequired
   };
@@ -22,7 +20,7 @@ export default class HomeRow extends React.Component {
   };
 
   componentDidMount() {
-    if (!this.props.model.title) {
+    if (!this.props.model.subjects.length) {
       this.props.loader();
     }
   }

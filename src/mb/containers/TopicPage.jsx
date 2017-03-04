@@ -3,27 +3,34 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import actionCreators from '../actions/models-action-creators';
+import Topic from '../components/Topic';
 
 @connect(
-  state => ({ models: state.models }),
-  dispatch => bindActionCreators(actionCreators, dispatch)
+  (state, ownProps) => ({
+    model: state.models[ownProps.match.params.topic],
+    topic: ownProps.match.params.topic
+  }),
+  dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) })
 )
 export default class TopicPage extends React.Component {
   static propTypes = {
-    // loadMovie: React.PropTypes.func.isRequired,
-    // params: React.PropTypes.shape({
-    //   movieId: React.PropTypes.string.isRequired
-    // }).isRequired
+    topic: React.PropTypes.string.isRequired,
+    model: React.PropTypes.object,
+    actions: React.PropTypes.shape({
+      loadComingSoon: React.PropTypes.func.isRequired,
+      loadInTheaters: React.PropTypes.func.isRequired,
+      loadTop250: React.PropTypes.func.isRequired
+    }).isRequired
   };
 
-  componentDidMount() {
-  }
-
   render() {
+    const loaderName = `load${capitalizeFirstLetter(this.props.topic)}`;
     return (
-      <div>
-        Under construction
-      </div>
+      <Topic model={this.props.model} loadTopic={this.props.actions[loaderName]} />
     );
   }
+}
+
+function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
