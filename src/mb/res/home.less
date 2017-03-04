@@ -13,7 +13,7 @@
   .section-content {
     overflow-x: scroll;
     overflow-y: hidden;
-    height: 190px;
+    height: 205px;
     padding-bottom: 1em;
     margin-bottom: -1em;
     white-space: nowrap;
@@ -24,7 +24,7 @@
 
       li.movie-cover {
         width: 100px;
-        height: 100%;;
+        height: 100%;
 
         &:not(:last-child) {
           margin-right: 6px;
@@ -38,27 +38,34 @@
   display: inline-block;
 
   a {
-    display: inline-block;
     vertical-align: top;
-    width: 100%;
-    height: 100%;
+    color: @mb-font-color;
+    width: 100px;
+    text-decoration: none;
 
     .movie-cover {
       width: 100%;
-      height: 135px;
+      height: 140px;
       background-size: cover;
       background-repeat: no-repeat;
     }
-  }
 
-  .title {
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    .title {
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      // FIXME 不知道为什么会有空白
+      margin-top: -2px;
+    }
 
-  .rating {
+    .rating {
+      height: 10px;
+      font-size: 12px;
 
+      .rating-stars {
+        font-size: 12px;
+      }
+    }
   }
 }

@@ -7,17 +7,22 @@
 
   .star {
     color: @mb-theme-color;
+    font-size: inherit;
   }
-  > .half-star {
+
+  .half-star {
     position: relative;
+    font-size: inherit;
 
     &:before {
+      font-size: inherit;
       color: darken(@gray-text-color, 25%);
       position: relative;
       content: '\f02a'
     }
 
     &:after {
+      font-size: inherit;
       position: absolute;
       content: '\f02a';
       top: 0;
@@ -28,6 +33,7 @@
     }
   }
   .zero-star {
-    color: darken(@gray-text-color, 25%)
+    font-size: inherit;
+    color: darken(@gray-text-color, 25%);
   }
 }

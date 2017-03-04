@@ -12,13 +12,13 @@ export default function MovieCover(props) {
           style={{ backgroundImage: `url(${props.movie.images.large})` }}
           alt="movie cover"
         />
+        <div className="title">
+          {props.movie.title}
+        </div>
+        <div className="rating">
+          <RatingStars stars={props.movie.rating.stars} /> {props.movie.rating.average}
+        </div>
       </Link>
-      <div className="title">
-        {props.movie.title}
-      </div>
-      <div className="rating">
-        <RatingStars stars={props.movie.rating.stars} /> {props.movie.rating.average}
-      </div>
     </li>
   );
 }
