@@ -7,7 +7,7 @@ import actionCreators from '../actions/models-action-creators';
 
 @connect(
   state => ({ models: state.models }),
-  dispatch => bindActionCreators(actionCreators, dispatch)
+  dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) })
 )
 export default class HomePage extends React.Component {
   static propTypes = {
@@ -15,9 +15,11 @@ export default class HomePage extends React.Component {
       inTheaters: React.PropTypes.object,
       comingSoon: React.PropTypes.object
     }),
-    loadComingSoon: React.PropTypes.func.isRequired,
-    loadInTheaters: React.PropTypes.func.isRequired,
-    loadTop250: React.PropTypes.func.isRequired
+    actions: React.PropTypes.shape({
+      loadComingSoon: React.PropTypes.func.isRequired,
+      loadInTheaters: React.PropTypes.func.isRequired,
+      loadTop250: React.PropTypes.func.isRequired
+    })
   }
 
   static defaultProps = {
@@ -26,9 +28,9 @@ export default class HomePage extends React.Component {
 
   render() {
     const loaders = {
-      inTheaters: this.props.loadInTheaters,
-      comingSoon: this.props.loadComingSoon,
-      top250: this.props.loadTop250
+      inTheaters: this.props.actions.loadInTheaters,
+      comingSoon: this.props.actions.loadComingSoon,
+      top250: this.props.actions.loadTop250
     };
     return (
       <div className="mb-page mb-home-page">
