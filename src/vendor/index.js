@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import 'jquery';
+// import 'jquery';
 import 'react';
 import 'react-dom';
 import 'react-redux';
@@ -7,3 +7,4 @@ import 'redux';
 import 'redux-actions';
 import 'redux-immutable';
 import 'redux-promise';
+import 'whatwg-fetch';

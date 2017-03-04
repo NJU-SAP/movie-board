@@ -2,7 +2,6 @@
 const API_URL = '/api/v2/movie';
 const API_KEY = '0df993c66c0c636e29ecbb5344252a4a';
 
-
 export default {
   inTheaters: createMethod('in_theaters'),
   comingSoon: createMethod('coming_soon'),
@@ -10,15 +9,13 @@ export default {
   movie: createMethod('subject')
 };
 
-
-function fetch(path, args) {
-  return $.ajax({
-    url: `${API_URL}/${path}`,
-    data: {
-      ...args,
-      apikey: API_KEY
-    }
-  });
+function myFetch(path, args) {
+  const data = {
+    ...args,
+    apikey: API_KEY
+  };
+  return fetch(`${API_URL}/${path}?${querystring(data)}`)
+    .then(res => res.json());
 }
 
 function createMethod(
@@ -27,7 +24,14 @@ function createMethod(
   responseHandler = response => response) {
   return async (payload, extraPath = '') => {
     const args = payloadHandler(payload);
-    const response = await fetch(path + extraPath, args);
+    const response = await myFetch(path + extraPath, args);
     return responseHandler(response);
   };
+}
+
+function querystring(obj = {}) {
+  const encode = encodeURIComponent;
+  return Object.keys(obj)
+    .map(k => encode(k) + '=' + encode(obj[k]))
+    .join('&');
 }
