@@ -1,6 +1,6 @@
 FROM node:boron
 
-MAINTAINER Lucas Yu <LucasYuNju@gmail.com>, Longlong Li<>
+MAINTAINER Jason Wang, Lucas Yu, Longlong Li
 
 # Use Alibaba's NPM mirror
 RUN npm set registry https://registry.npm.taobao.org/
