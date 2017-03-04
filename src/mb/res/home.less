@@ -13,7 +13,7 @@
   .section-content {
     overflow-x: scroll;
     overflow-y: hidden;
-    height: 130px;
+    height: 190px;
     padding-bottom: 1em;
     margin-bottom: -1em;
     white-space: nowrap;
@@ -22,29 +22,43 @@
       list-style: none;
       padding: 0;
 
-      li {
+      li.movie-cover {
         width: 100px;
-        height: 130px;
-        display: inline-block;
+        height: 100%;;
 
         &:not(:last-child) {
-          margin-right: 2px;
-        }
-
-        a {
-          display: inline-block;
-          vertical-align: top;
-          width: 100%;
-          height: 100%;
-
-          .movie-cover {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-repeat: no-repeat;
-          }
+          margin-right: 6px;
         }
       }
     }
+  }
+}
+
+.movie-cover {
+  display: inline-block;
+
+  a {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+
+    .movie-cover {
+      width: 100%;
+      height: 135px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .title {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rating {
+
   }
 }

@@ -13,9 +13,6 @@ export default class MovieDetailInfo extends React.Component {
     }).isRequired,
   };
 
-  static defaultProps = {
-  };
-
   state = {
     hidden: true
   }

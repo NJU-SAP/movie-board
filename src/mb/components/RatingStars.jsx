@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../res/rating-stars.less';
 import Icon from './Icon';
 
 export default function RatingStars(props) {
@@ -16,7 +15,7 @@ export default function RatingStars(props) {
     }
   }
   return (
-    <div className="mb-rating-stars">
+    <div className="rating-stars">
       {starsElement}
     </div>
   );
