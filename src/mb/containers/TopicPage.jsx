@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import actionCreators from '../actions/models-action-creators';
 import Topic from '../components/Topic';
+import { capitalizeFirstLetter } from '../util';
 
 @connect(
   (state, ownProps) => ({
@@ -29,8 +30,4 @@ export default class TopicPage extends React.Component {
       <Topic model={this.props.model} loadTopic={this.props.actions[loaderName]} />
     );
   }
-}
-
-function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
 }

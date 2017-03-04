@@ -1,4 +1,5 @@
-// const API_URL = 'http://api.douban.com/v2/movie';
+import { querystring } from '../../mb/util';
+
 const API_URL = '/api/v2/movie';
 const API_KEY = '0df993c66c0c636e29ecbb5344252a4a';
 
@@ -27,11 +28,4 @@ function createMethod(
     const response = await myFetch(path + extraPath, args);
     return responseHandler(response);
   };
-}
-
-function querystring(obj = {}) {
-  const encode = encodeURIComponent;
-  return Object.keys(obj)
-    .map(k => encode(k) + '=' + encode(obj[k]))
-    .join('&');
 }
