@@ -15,12 +15,14 @@ export default function RatingStars(props) {
     }
   }
   return (
-    <div className="rating-stars">
+    <span className="rating-stars">
       {starsElement}
-    </div>
+      <span className="average">{props.average}</span>
+    </span>
   );
 }
 
 RatingStars.propTypes = {
+  average: React.PropTypes.number.isRequired,
   stars: React.PropTypes.string.isRequired
 };

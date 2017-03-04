@@ -36,7 +36,7 @@ export default class MovieDetailSpotlight extends React.Component {
           <span>{this.props.movie.durations[0]}</span>
         </div>
         <div className="rating">
-          <RatingStars stars={this.props.movie.rating.stars} /> {this.props.movie.rating.average}
+          <RatingStars stars={this.props.movie.rating.stars} average={this.props.movie.rating.average} />
         </div>
       </div>
     );

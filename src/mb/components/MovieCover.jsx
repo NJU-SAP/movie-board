@@ -16,7 +16,7 @@ export default function MovieCover(props) {
           {props.movie.title}
         </div>
         <div className="rating">
-          <RatingStars stars={props.movie.rating.stars} /> {props.movie.rating.average}
+          <RatingStars stars={props.movie.rating.stars} average={props.movie.rating.average} />
         </div>
       </Link>
     </li>
