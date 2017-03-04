@@ -15,10 +15,15 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
+    compress: true,
     historyApiFallback: true,
     hot: false,
     hotOnly: false,
     contentBase: path.resolve(__dirname, 'public'),
+    watchContentBase: false,
+    watchOptions: {
+      poll: false
+    },
     proxy: {
       '/api': {
         target: 'http://api.douban.com/',

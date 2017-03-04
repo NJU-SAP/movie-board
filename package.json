@@ -4,7 +4,7 @@
   "description": "Re-design and implement Douban Movie with React and Redux.",
   "main": "index.js",
   "scripts": {
-    "start": "node lib/index.js",
+    "start": "node ./lib",
     "dev": "webpack-dev-server --host 0.0.0.0",
     "build": "webpack -p"
   },
@@ -65,5 +65,9 @@
     "webpack-dev-server": "^2.4.1",
     "whatwg-fetch": "^2.0.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.15.0",
+    "http-proxy-middleware": "^0.17.4"
+  }
 }
