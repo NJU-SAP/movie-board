@@ -12,9 +12,6 @@ export default class Movie extends React.Component {
     }).isRequired
   }
 
-  static defaultProps = {
-  }
-
   componentDidMount() {
     if (!this.props.movie) {
       this.props.actions.loadMovie(this.props.movieId);
@@ -22,6 +19,7 @@ export default class Movie extends React.Component {
   }
 
   render() {
+    // FIXME 不要return null
     if (!this.props.movie || !this.props.movie.photos) {
       return null;
     }
