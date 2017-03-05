@@ -4,9 +4,10 @@
   "description": "Re-design and implement Douban Movie with React and Redux.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./lib",
+    "start": "node ./dist/server.bundle.js",
     "dev": "webpack-dev-server --host 0.0.0.0",
-    "build": "webpack -p"
+    "build-client": "webpack -p",
+    "build-server": "webpack -p --config webpack.config.server.js"
   },
   "repository": {
     "type": "git",

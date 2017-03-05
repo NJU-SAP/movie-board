@@ -5,7 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import Root from './Root';
 import configStore from './store';
 
-const store = configStore();
+const initialState = __app_initial_state__ || {};
+const store = configStore(initialState);
 
 render(
   <BrowserRouter>
