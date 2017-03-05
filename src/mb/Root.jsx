@@ -8,8 +8,7 @@ import MoviePage from './containers/MoviePage';
 import SearchPage from './containers/SearchPage';
 import TopicPage from './containers/TopicPage';
 
-export default function Root(props, b) {
-  console.log(b);
+export default function Root(props) {
   return (
     <Provider store={props.store}>
       <App>
@@ -27,7 +26,3 @@ export default function Root(props, b) {
 Root.propTypes = {
   store: React.PropTypes.object.isRequired
 };
-
-Root.contextTypes = {
-  router: React.PropTypes.object.isRequired
-}
