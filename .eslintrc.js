@@ -37,6 +37,9 @@ module.exports = {
     ],
     "react/forbid-prop-types": [
       "off"
+    ],
+    "react/jsx-filename-extension": [
+      "off"
     ]
   },
   "globals": {
