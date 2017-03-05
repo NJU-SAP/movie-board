@@ -38,7 +38,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      'normalize.css': path.resolve(__dirname, './node_modules/normalize.css/normalize.css')
+      'normalize.css': path.resolve(__dirname, './node_modules/normalize.css/normalize.css'),
+      'octicons.css': path.resolve(__dirname, './node_modules/octicons/octicons/octicons.css')
     }
   },
   module: {
@@ -95,9 +96,6 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: 'vendor'
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery'
     }),
     new ExtractTextPlugin('assets/css/[name].css')
   ]
