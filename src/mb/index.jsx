@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import Root from './Root';
 import configStore from './store';
@@ -7,6 +8,8 @@ import configStore from './store';
 const store = configStore();
 
 render(
-  <Root store={store} />,
+  <BrowserRouter>
+    <Root store={store} />
+  </BrowserRouter>,
   document.getElementById('mbMountPoint')
 );
