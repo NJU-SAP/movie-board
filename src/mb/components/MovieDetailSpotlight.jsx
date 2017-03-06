@@ -24,8 +24,12 @@ export default class MovieDetailSpotlight extends React.Component {
   };
 
   render() {
+    let url = '';
+    if (this.props.movie.trailers.length > 0) {
+      url = this.props.movie.trailers[0].medium;
+    }
     const style = {
-      backgroundImage: `-webkit-linear-gradient(left, rgba(0,0,0,1) 28%, rgba(20,20,20,0)), url('${this.props.movie.trailers[0].medium}')`,
+      backgroundImage: `-webkit-linear-gradient(left, rgba(0,0,0,1) 28%, rgba(20,20,20,0)), url('${url}')`,
     };
     return (
       <div className="movie-detail-spotlight" style={style}>
@@ -36,7 +40,10 @@ export default class MovieDetailSpotlight extends React.Component {
           <span>{this.props.movie.durations[0]}</span>
         </div>
         <div className="rating">
-          <RatingStars stars={this.props.movie.rating.stars} average={this.props.movie.rating.average} />
+          <RatingStars
+            stars={this.props.movie.rating.stars}
+            average={this.props.movie.rating.average}
+          />
         </div>
       </div>
     );
