@@ -38,7 +38,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      'normalize.css': path.resolve(__dirname, './node_modules/normalize.css/normalize.css')
+      'normalize.css': path.resolve(__dirname, './node_modules/normalize.css/normalize.css'),
+      'octicons.css': path.resolve(__dirname, './node_modules/octicons/octicons/octicons.css')
     }
   },
   module: {
@@ -71,17 +72,30 @@ module.exports = {
         ]
       },
       {
-        test: /\.(eot|ttf|woff|svg)$/,
-        use: ['file-loader']
-      }
+        test: /\.svg$/,
+        loader: 'url-loader?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]'
+      },
+      {
+        test: /\.woff$/,
+        loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]'
+      },
+      {
+        test: /\.woff2$/,
+        loader: 'url-loader?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]'
+      },
+      {
+        test: /\.[ot]tf$/,
+        loader: 'url-loader?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]'
+      },
+      {
+        test: /\.eot$/,
+        loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]'
+      },
     ]
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: 'vendor'
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery'
     }),
     new ExtractTextPlugin('assets/css/[name].css')
   ]

@@ -21,6 +21,8 @@ export default class Topic extends React.Component {
   }
 
   render() {
-    return null;
+    return (
+      <h2>Topic page is under construction</h2>
+    );
   }
 }

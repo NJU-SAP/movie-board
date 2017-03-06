@@ -1,18 +1,16 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
+import Root from './Root';
 import configStore from './store';
-import configRoutes from './routes';
 
-const store = configStore();
+const initialState = window.__app_initial_state__;
+const store = configStore(initialState);
 
 render(
-  <Provider store={store}>
-    <BrowserRouter>
-      {configRoutes()}
-    </BrowserRouter>
-  </Provider>,
+  <BrowserRouter>
+    <Root store={store} />
+  </BrowserRouter>,
   document.getElementById('mbMountPoint')
 );

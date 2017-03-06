@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
-import 'octicons/octicons/octicons.css';
+// TODO conditional require
+// require('octicons/octicons/octicons.css');
 
 export default function Icon(props) {
   return (

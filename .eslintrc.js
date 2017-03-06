@@ -17,9 +17,6 @@ module.exports = {
     "no-underscore-dangle": [
       "off"
     ],
-    "no-use-before-define": [
-      "off"
-    ],
     "no-restricted-syntax": [
       "off"
     ],
@@ -36,6 +33,9 @@ module.exports = {
       "off"
     ],
     "react/forbid-prop-types": [
+      "off"
+    ],
+    "react/jsx-filename-extension": [
       "off"
     ]
   },
