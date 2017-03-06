@@ -27,7 +27,7 @@ export default class MoviePage extends React.Component {
 
   render() {
     return (
-      <div className="mb-movie">
+      <div className="mb-page mb-movie">
         <Movie movie={this.props.movie} movieId={this.props.movieId} actions={this.props.actions} />
       </div>
     );
