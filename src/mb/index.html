@@ -7,23 +7,23 @@
   <link rel="stylesheet" href="/assets/css/mb.css">
   <script src="/assets/js/vendor.js"></script>
   <script type="text/javascript">
-  (function (doc, win) {
+    (function (doc, win) {
       var docEl = doc.documentElement,
-          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-          recalc = function () {
-              var clientWidth = docEl.clientWidth;
-              if (!clientWidth) return;
-              if(clientWidth>=750){
-                  docEl.style.fontSize = '100px';
-              }else{
-                  docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
-              }
-          };
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if(clientWidth>=750){
+            docEl.style.fontSize = '100px';
+          }else{
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
 
       if (!doc.addEventListener) return;
       win.addEventListener(resizeEvt, recalc, false);
       doc.addEventListener('DOMContentLoaded', recalc, false);
-  })(document, window);
+    })(document, window);
   </script>
 </head>
 <body>
