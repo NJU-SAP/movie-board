@@ -27,9 +27,17 @@ export default class AppHeader extends React.PureComponent {
   }
 
   handleNavigationSliderToggle = () => {
-    this.setState({
-      open: !this.state.open,
-    });
+    if (!this.state.open) {
+      this.setState({
+        open: !this.state.open,
+        translucent: false,
+      });
+    } else {
+      this.setState({
+        open: !this.state.open,
+        translucent: document.body.scrollTop > 5,
+      });
+    }
   }
 
   handleNavigationSliderHide = () => {
