@@ -45,10 +45,6 @@ export default class NavigationSlider extends Component {
     const tags = this.props.topics.map(this.renderTopicItem);
     return (
       <div className={classnames('mb-navigation-slider', { open: this.props.open })}>
-        <ol className="navigation-user-list">
-          <li className="user-info-link">您的账号</li>
-          <li className="user-logout">登出</li>
-        </ol>
         <ol className="navigation-category-list">
           {tags}
         </ol>
