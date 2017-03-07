@@ -38,6 +38,12 @@ export default class AppHeader extends React.PureComponent {
     });
   }
 
+  renderSlider = (props) => {
+    return (
+      <NavigationSlider {...props} open={this.state.open} toggle={this.handleNavigationSliderToggle} />
+    );
+  }
+
   render() {
     const className = cn('mb-app-header', { translucent: this.state.translucent });
 
@@ -56,7 +62,7 @@ export default class AppHeader extends React.PureComponent {
             className={cn('background', { active: this.state.open })}
             onClick={() => this.handleNavigationSliderHide()}
           />
-          <Route path="*" render={(props) => <NavigationSlider {...props} open={this.state.open} toggle={this.handleNavigationSliderToggle} />} />
+          <Route path="*" render={this.renderSlider} />
         </div>
         <Search className="mb-header-search" placeholder="搜索" />
       </header>
