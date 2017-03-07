@@ -61,7 +61,7 @@ export default class AppHeader extends React.PureComponent {
               iconName="three-bars"
               onClick={this.handleNavigationSliderToggle}
             />
-            <a className="mb-logo" />
+            <a className="mb-logo" href="/" />
           </div>
           <div
             className={cn('background', { active: this.state.open })}
