@@ -7,13 +7,10 @@ import NavigationSlider from './NavigationSlider';
 import Search from './Search';
 
 export default class AppHeader extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      translucent: false,
-      open: false,
-    };
-  }
+  state = {
+    translucent: false,
+    open: false,
+  };
 
   componentDidMount() {
     window.addEventListener('scroll', () => {
@@ -64,7 +61,7 @@ export default class AppHeader extends React.PureComponent {
               iconName="three-bars"
               onClick={this.handleNavigationSliderToggle}
             />
-            <div className="mb-logo" />
+            <a className="mb-logo" />
           </div>
           <div
             className={cn('background', { active: this.state.open })}
