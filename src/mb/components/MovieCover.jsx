@@ -8,7 +8,7 @@ export default function MovieCover(props) {
     <li className="movie-cover">
       <Link to={`/movie/${props.movie.id}`}>
         <div
-          className="movie-cover"
+          className="image"
           style={{ backgroundImage: `url(${props.movie.images.large})` }}
           alt="movie cover"
         />
