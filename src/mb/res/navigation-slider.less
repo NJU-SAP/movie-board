@@ -1,16 +1,16 @@
 .mb-navigation-slider {
   position: fixed;
-  top: 50px;
+  top: @mb-app-header-height;
   left: 0px;
   bottom: 0px;
-  width: 3.2rem;
+  width: 3.8rem;
   overflow-x: hidden;
   overflow-y: auto;
-  transform: translateX(-3.2rem);
+  transform: translateX(-3.8rem);
   transition: transform 150ms cubic-bezier(.5,0,.1,1),-webkit-transform 150ms cubic-bezier(.5,0,.1,1);
   color: @mb-font-color;
-  font-size: @mb-navigation-slider-font-size;
-  line-height: @mb-navigation-slider-font-size;
+  font-size: @font-size-base;
+  line-height: @font-size-base;
 
   background: @body-bg;
 
@@ -23,9 +23,9 @@
     list-style: none;
 
     > li {
-      padding-left: 20px;
-      padding-top: 6px;
-      padding-bottom: 6px;
+      padding-left: 0.4rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
 
       a {
         color: inherit;
@@ -34,6 +34,7 @@
 
       &.selected {
         padding-left: 17px;
+        // FIXME 用::borfore实现
         border-left: 3px solid #B9090B;
         color: #fff;
       }
