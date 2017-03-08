@@ -15,15 +15,8 @@ export default class NavigationSlider extends Component {
   };
 
   static defaultProps = {
-    topics: ['', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250']
+    topics: ['', 'inTheaters', 'comingSoon', 'top250' ];
   };
-
-  componentDidMount() {
-    this.background.style.overflow = 'hidden';
-    this.background.addEventListener('scroll', (e) => {
-      e.preventDefault();
-    }, false);
-  }
 
   handleTopicClick = () => {
     this.props.toggle();
