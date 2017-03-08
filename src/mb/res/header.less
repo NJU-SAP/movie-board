@@ -1,17 +1,16 @@
 .mb-app-header {
-  position: fixed;
+  position: absolute;
   z-index: 10;
   left: 0;
   right: 0;
   top: 0;
-  height: 50px;
+  height: @mb-app-header-height;
   transition: background 0.5s;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 0.4rem;
   background-color: @body-bg;
 
   &.translucent {
@@ -30,15 +29,17 @@
       align-items: center;
 
       > .nav-show-btn {
-        width: 24px;
-        height: 24px;
-        font-size: 28px;
+        width: 0.48rem;
+        height: 0.48rem;
+        line-height: 0.48rem;
+        font-size: 0.56rem;
         color: white;
       }
 
-      > .mb-logo {
-        width: 120px;
-        height: 40px;
+      > a.mb-logo {
+        display: block;
+        width: 2.4rem;
+        height: 0.6rem;
         background: url('images/mb-logo.png') no-repeat;
         background-size: contain;
       }
@@ -46,7 +47,7 @@
     > .background {
       display: none;
       position: fixed;
-      top: 50px;
+      top: @mb-app-header-height;
       left: 0;
       bottom: 0;
       width: 100%;

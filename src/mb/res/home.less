@@ -3,17 +3,25 @@
 }
 
 .mb-section-header {
-  font-weight: 700;
-  color: #999;
+  color: @mb-font-color;
+  padding-top: 0.3rem;
+  padding-bottom: 0.15rem;
+
+  h2 {
+    font-weight: 700;
+    font-size: @font-size-large;
+  }
 }
 
 .mb-home-section {
   overflow: hidden;
+  padding-left: 0.4rem;
 
   .section-content {
     overflow-x: scroll;
     overflow-y: hidden;
-    height: 4.05rem;
+
+    height: 4.1rem;
     padding-bottom: 1em;
     margin-bottom: -1em;
     white-space: nowrap;
@@ -21,13 +29,17 @@
     ul.movie-covers {
       list-style: none;
       padding: 0;
+      margin: 0;
+      padding-right: 0.4rem;
 
       li.movie-cover {
-        width: 1rem;
+        width: 2rem;
         height: 100%;
 
-        &:not(:last-child) {
-          margin-right: 0.06rem;
+        padding-right: 4px;
+
+        &:last-child {
+          padding-right: 0.4rem;
         }
       }
     }
@@ -40,12 +52,13 @@
   a {
     vertical-align: top;
     color: @mb-font-color;
-    width: 100px;
+    width: 100%;
     text-decoration: none;
+    background: lighten(@body-bg, 20%);
 
-    .movie-cover {
+    .image {
       width: 100%;
-      height: 1.4rem;
+      height: 2.8rem;
       background-size: cover;
       background-repeat: no-repeat;
     }
@@ -55,17 +68,24 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      margin-top: -2px;
+      font-size: @font-size-small;
     }
 
     .rating {
-      height: 0.1rem;
-      font-size: 12px;
+      height: 0.2rem;
+      font-size: @font-size-small;
       text-align: center;
 
       .rating-stars {
         font-size: 12px;
+        font-size: @font-size-small;
       }
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movie-cover {
+    width: 33.3% !important;
   }
 }

@@ -1,14 +1,15 @@
 .mb-movie-detail {
+  padding: 0 0.4rem;
   height: 100%;
   display: flex;
   flex-direction: column;
 
   .movie-detail-spotlight {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    flex: 0 1 150px;
+    margin-left: -0.4rem;
+    margin-right: -0.4rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    flex: 0 1 2.8rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
@@ -16,17 +17,17 @@
     .title {
       color: white;
       font-size: @font-size-large;
-      margin-top: 10px
+      margin-top: 0.2rem
     }
     .info {
-      margin-top: 5px;
+      margin-top: 0.1rem;
       color: @mb-footer-color;
       span {
-        margin-right: 5px;
+        margin-right: 0.1rem;
       }
     }
     .rating {
-      margin-top: 5px;
+      margin-top: 0.1rem;
       color: white;
     }
   }
@@ -37,14 +38,15 @@
     flex-direction: column;
 
     .movie-detail-intro {
-      margin-top: 15px;
+      font-size: @font-size-small;
+      margin-top: 0.3rem;
       transition: max-height 0.2s linear;
       &.opened {
-        max-height: 200px;
+        max-height: 4.5rem;
         overflow-y: hidden;
       }
       &.closed {
-        max-height: 100px;
+        max-height: 2rem;
         overflow-y: hidden;
       }
     }
@@ -52,8 +54,8 @@
       font-size: @font-size-base;
       column-count: 2;
       .details-list {
-        margin-top: 2px;
-        padding-left: 0px;
+        margin-top: 0.04rem;
+        padding-left: 0rem;
         list-style: none;
         color: #ccc;
 
