@@ -15,7 +15,7 @@ export default class NavigationSlider extends Component {
   };
 
   static defaultProps = {
-    topics: ['', 'inTheaters', 'comingSoon', 'top250' ];
+    topics: ['', 'inTheaters', 'comingSoon', 'top250' ]
   };
 
   handleTopicClick = () => {
