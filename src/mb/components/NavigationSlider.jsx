@@ -15,8 +15,15 @@ export default class NavigationSlider extends Component {
   };
 
   static defaultProps = {
-    topics: ['', 'inTheaters', 'comingSoon', 'top250']
+    topics: ['', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250', '', 'inTheaters', 'comingSoon', 'top250']
   };
+
+  componentDidMount() {
+    this.background.style.overflow = 'hidden';
+    this.background.addEventListener('scroll', (e) => {
+      e.preventDefault();
+    }, false);
+  }
 
   handleTopicClick = () => {
     this.props.toggle();
@@ -39,12 +46,13 @@ export default class NavigationSlider extends Component {
     );
   };
 
+
   render() {
     const match = topicRegex.exec(this.props.match.url);
     this.selected = match ? match[1] : '';
     const tags = this.props.topics.map(this.renderTopicItem);
     return (
-      <div className={classnames('mb-navigation-slider', { open: this.props.open })}>
+      <div ref={(DOM) => { this.background = DOM; }} className={classnames('mb-navigation-slider', { open: this.props.open })}>
         <ol className="navigation-category-list">
           {tags}
         </ol>
