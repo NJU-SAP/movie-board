@@ -23,9 +23,10 @@
     list-style: none;
 
     > li {
-      padding-left: 0.4rem;
       padding-top: 0.2rem;
       padding-bottom: 0.2rem;
+      padding-left: 0.3rem;
+      border-left: 0.1rem solid transparent;
 
       a {
         color: inherit;
@@ -33,9 +34,7 @@
       }
 
       &.selected {
-        padding-left: 17px;
-        // FIXME 用::borfore实现
-        border-left: 3px solid #B9090B;
+        border-left: 0.1rem solid #B9090B;
         color: #fff;
       }
     }
