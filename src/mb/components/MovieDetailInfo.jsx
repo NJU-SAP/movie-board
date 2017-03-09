@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
+import Icon from './Icon';
 import SectionHeader from './SectionHeader';
 
 export default class MovieDetailInfo extends React.Component {
@@ -68,13 +69,21 @@ export default class MovieDetailInfo extends React.Component {
       'opened': !this.state.hidden,
       'closed': this.state.hidden
     });
+    const toggleButtonClassNames = classnames({
+      'chevron-down': this.state.hidden,
+      'chevron-up': !this.state.hidden
+    });
     return (
       <div className="movie-detail-info">
         <div
           className={introClassNames}
           onClick={this.handleToggleButtonClick}
           ref={ref => (this.intro = ref)}
-        >{this.props.movie.summary}
+        >
+          <p className="intro-content">{this.props.movie.summary}</p>
+        </div>
+        <div className="toggle-info-button">
+          <Icon iconName={toggleButtonClassNames} />
         </div>
         <SectionHeader title="影片资讯" />
         <div className="movie-detail-infos">

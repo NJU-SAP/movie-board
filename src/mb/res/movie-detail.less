@@ -20,6 +20,7 @@
       margin-top: 0.2rem
     }
     .info {
+      font-size: @font-size-base;
       margin-top: 0.1rem;
       color: @mb-footer-color;
       span {
@@ -27,6 +28,7 @@
       }
     }
     .rating {
+      font-size: @font-size-base;
       margin-top: 0.1rem;
       color: white;
     }
@@ -38,6 +40,7 @@
     flex-direction: column;
 
     .movie-detail-intro {
+      position: relative;
       font-size: @font-size-small;
       margin-top: 0.3rem;
       transition: max-height 0.2s linear;
@@ -49,6 +52,14 @@
         max-height: 2rem;
         overflow-y: hidden;
       }
+    }
+    .intro-content {
+      // margin-bottom: 40px;
+    }
+    .toggle-info-button {
+      text-align: center;
+      font-size: @font-size-small;
+      width: 100%;
     }
     .movie-detail-infos {
       font-size: @font-size-base;
