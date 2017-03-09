@@ -27,7 +27,9 @@ export default class TopicPage extends React.Component {
   render() {
     const loaderName = `load${capitalizeFirstLetter(this.props.topic)}`;
     return (
-      <Topic model={this.props.model} loadTopic={this.props.actions[loaderName]} />
+      <div className="mb-page mb-topic">
+        <Topic model={this.props.model} loadTopic={this.props.actions[loaderName]} />
+      </div>
     );
   }
 }
