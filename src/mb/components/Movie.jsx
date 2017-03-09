@@ -19,7 +19,6 @@ export default class Movie extends React.Component {
   }
 
   render() {
-    // FIXME 不要return null
     if (!this.props.movie || !this.props.movie.photos) {
       return null;
     }
