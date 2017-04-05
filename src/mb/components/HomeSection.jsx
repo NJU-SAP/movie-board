@@ -27,7 +27,7 @@ export default class HomeRow extends React.Component {
 
   renderSectionContent() {
     const covers = this.props.model.subjects
-      .slice(0, 10)
+      .slice(0, 8)
       .map(movie => <MovieCover key={movie.id} movie={movie} />);
     return (
       <div className="section-content">

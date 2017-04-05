@@ -9,7 +9,7 @@ export default function MovieCover(props) {
       <Link to={`/movie/${props.movie.id}`}>
         <div
           className="image"
-          style={{ backgroundImage: `url(${props.movie.images.large})` }}
+          style={{ backgroundImage: `url(${props.movie.images.medium})` }}
           alt="movie cover"
         />
         <div className="title">

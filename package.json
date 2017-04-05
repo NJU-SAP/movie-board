@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/cassiny/movie-board#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.0",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.3.2",
