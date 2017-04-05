@@ -22,9 +22,6 @@ export default class MoviePage extends React.Component {
     }).isRequired
   }
 
-  static defaultProps = {
-  }
-
   render() {
     return (
       <div className="mb-page mb-movie">

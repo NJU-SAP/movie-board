@@ -22,13 +22,12 @@ export default class HomePage extends React.Component {
     })
   }
 
-  static defaultProps = {
-    models: { inTheaters: { count: 0 }, comingSoon: { count: 0 } }
-  }
-
   render() {
     const { actions } = this.props;
-    const offset = { start: 0, count: 18 };
+    const offset = {
+      start: 0,
+      count: 18
+    };
     const loaders = {
       inTheaters: () => actions.loadInTheaters(offset),
       comingSoon: () => actions.loadComingSoon(offset),

@@ -6,13 +6,10 @@ import AppFooter from '../components/AppFooter';
 
 export default class App extends React.Component {
   static propTypes = {
-    children: React.PropTypes.element
+    children: React.PropTypes.element.isRequired
   }
 
-  static defaultProps = {
-    children: []
-  }
-
+  // 在'/topic/*'路径下不显示Footer
   render() {
     return (
       <div className="mb-app">
