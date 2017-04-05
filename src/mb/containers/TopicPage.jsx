@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import actionCreators from '../actions/models-action-creators';
 import Topic from '../components/Topic';
-import { capitalizeFirstLetter } from '../util';
+import { capitalizeFirstLetter } from '../util/capitalize';
 
 @connect(
   (state, ownProps) => ({

@@ -1,4 +1,5 @@
-import { querystring } from '../../mb/util';
+import jsonp from '../util/jsonp';
+import querystring from '../util/querystring';
 
 const API_URL = '/api/v2/movie';
 const API_KEY = '0df993c66c0c636e29ecbb5344252a4a';
@@ -10,13 +11,12 @@ export default {
   movie: createMethod('subject')
 };
 
-function myFetch(path, args) {
+function fetch(path, args) {
   const data = {
     ...args,
     apikey: API_KEY
   };
-  return fetch(`${API_URL}/${path}?${querystring(data)}`)
-    .then(res => res.json());
+  return jsonp(`${API_URL}/${path}?${querystring(data)}`);
 }
 
 function createMethod(
@@ -25,7 +25,7 @@ function createMethod(
   responseHandler = response => response) {
   return async (payload, extraPath = '') => {
     const args = payloadHandler(payload);
-    const response = await myFetch(path + extraPath, args);
+    const response = await fetch(path + extraPath, args);
     return responseHandler(response);
   };
 }
