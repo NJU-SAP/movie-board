@@ -27,10 +27,12 @@ export default class HomePage extends React.Component {
   }
 
   render() {
+    const { actions } = this.props;
+    const offset = { start: 0, count: 18 };
     const loaders = {
-      inTheaters: this.props.actions.loadInTheaters,
-      comingSoon: this.props.actions.loadComingSoon,
-      top250: this.props.actions.loadTop250
+      inTheaters: () => actions.loadInTheaters(offset),
+      comingSoon: () => actions.loadComingSoon(offset),
+      top250: () => actions.loadTop250(offset)
     };
     return (
       <div className="mb-page mb-home-page">

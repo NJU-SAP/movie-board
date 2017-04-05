@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import actionCreators from '../actions/models-action-creators';
 import Topic from '../components/Topic';
-import { capitalizeFirstLetter } from '../util/capitalize';
+import { capitalize } from '../util/word';
 
 @connect(
   (state, ownProps) => ({
@@ -25,10 +25,14 @@ export default class TopicPage extends React.Component {
   };
 
   render() {
-    const loaderName = `load${capitalizeFirstLetter(this.props.topic)}`;
+    const loaderName = `load${capitalize(this.props.topic)}`;
+    const loadMore = () => this.props.actions[loaderName]({
+      count: 18,
+      start: this.props.model.subjects.length
+    });
     return (
       <div className="mb-page mb-topic">
-        <Topic model={this.props.model} loadTopic={this.props.actions[loaderName]} />
+        <Topic model={this.props.model} loadMore={loadMore} />
       </div>
     );
   }

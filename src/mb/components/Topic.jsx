@@ -1,11 +1,13 @@
 import React from 'react';
 
+import MovieCover from './MovieCover';
+
 export default class Topic extends React.Component {
   static propTypes = {
     model: React.PropTypes.shape({
       subjects: React.PropTypes.array
     }),
-    loadTopic: React.PropTypes.func.isRequired
+    loadMore: React.PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -15,14 +17,20 @@ export default class Topic extends React.Component {
   };
 
   componentDidMount() {
-    if (!this.props.model) {
-      this.props.loadTopic();
+    if (!this.props.model.subjects.length) {
+      this.props.loadMore();
     }
   }
 
   render() {
+    const covers = this.props.model.subjects
+      .map(movie => <MovieCover key={movie.id} movie={movie} />);
     return (
-      <h2>Topic page is under construction</h2>
+      <div className="mb-topic-section">
+        <div className="list">
+          {covers}
+        </div>
+      </div>
     );
   }
 }

@@ -12,7 +12,6 @@ function jsonp(url) {
   return new Promise((resolve, reject) => {
     window[callbackName] = function(res) {
       delete window[callbackName];
-      console.log(res);
       resolve(res);
       head.removeChild(script);
     }
