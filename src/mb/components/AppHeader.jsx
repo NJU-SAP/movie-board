@@ -1,12 +1,15 @@
 import cn from 'classnames';
 import React from 'react';
-import { Route } from 'react-router';
 
 import Icon from './Icon';
 import NavigationSlider from './NavigationSlider';
 import Search from './Search';
 
 export default class AppHeader extends React.PureComponent {
+  static propTypes = {
+    match: React.PropTypes.object.isRequired
+  };
+
   state = {
     translucent: false,
     open: false,
@@ -45,7 +48,11 @@ export default class AppHeader extends React.PureComponent {
 
   renderSlider = (props) => {
     return (
-      <NavigationSlider {...props} open={this.state.open} toggle={this.handleNavigationSliderToggle} />
+      <NavigationSlider
+        match={this.props.match}
+        open={this.state.open}
+        toggle={this.handleNavigationSliderToggle}
+      />
     );
   }
 
@@ -67,7 +74,7 @@ export default class AppHeader extends React.PureComponent {
             className={cn('background', { active: this.state.open })}
             onClick={() => this.handleNavigationSliderHide()}
           />
-          <Route path="*" render={this.renderSlider} />
+          {this.renderSlider()}
         </div>
         <Search className="mb-header-search" placeholder="搜索" />
       </header>

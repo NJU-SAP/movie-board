@@ -25,10 +25,10 @@ export default class TopicPage extends React.Component {
   };
 
   render() {
-    const loaderName = `load${capitalize(this.props.topic)}`;
-    const loadMore = () => this.props.actions[loaderName]({
+    const { actions, topic, model } = this.props;
+    const loadMore = () => actions[`load${capitalize(topic)}`]({
       count: 18,
-      start: this.props.model.subjects.length
+      start: model.subjects.length
     });
     return (
       <div className="mb-page mb-topic">

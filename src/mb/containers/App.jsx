@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route } from 'react-router';
 
 import AppHeader from '../components/AppHeader';
 import AppFooter from '../components/AppFooter';
@@ -15,9 +16,12 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="mb-app">
-        <AppHeader />
+        <Route path="*" component={AppHeader} />
         {this.props.children}
-        <AppFooter />
+        <Switch>
+          <Route exact path="/" component={AppFooter} />
+          <Route path="/movie" component={AppFooter} />
+        </Switch>
       </div>
     );
   }
