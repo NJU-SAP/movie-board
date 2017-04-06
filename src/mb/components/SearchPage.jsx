@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import Icon from './Icon';
 import classnames from 'classnames';
+
+import Icon from './Icon';
 
 export default class Search extends Component {
   static propTypes = {
@@ -30,8 +31,9 @@ export default class Search extends Component {
 
   render() {
     if (this.props.searchResult) {
-      return (<div className="mb-search-page">
-      </div>);
+      return (
+        <div className="mb-search-page" />
+      );
     }
     return null;
   }

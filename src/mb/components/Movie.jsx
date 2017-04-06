@@ -23,9 +23,11 @@ export default class Movie extends React.Component {
       return null;
     }
     return (
-      <div className="mb-movie-detail">
-        <MovieDetailSpotlight movie={this.props.movie} />
-        <MovieDetailInfo movie={this.props.movie} />
+      <div className="mb-page mb-movie">
+        <div className="mb-movie-detail">
+          <MovieDetailSpotlight movie={this.props.movie} />
+          <MovieDetailInfo movie={this.props.movie} />
+        </div>
       </div>
     );
   }

@@ -31,9 +31,7 @@ export default class TopicPage extends React.Component {
       start: model.subjects.length
     });
     return (
-      <div className="mb-page mb-topic">
-        <Topic model={this.props.model} loadMore={loadMore} />
-      </div>
+      <Topic model={this.props.model} loadMore={loadMore} />
     );
   }
 }

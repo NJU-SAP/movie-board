@@ -16,8 +16,10 @@ export default function Home(props) {
     );
   });
   return (
-    <div className="mb-home">
-      { rows }
+    <div className="mb-page mb-home-page">
+      <div className="mb-home">
+        { rows }
+      </div>
     </div>
   );
 }

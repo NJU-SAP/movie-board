@@ -26,9 +26,11 @@ export default class Topic extends React.Component {
     const covers = this.props.model.subjects
       .map(movie => <MovieCover key={movie.id} movie={movie} />);
     return (
-      <div className="mb-topic-section">
-        <div className="list">
-          {covers}
+      <div className="mb-page mb-topic">
+        <div className="mb-topic-section">
+          <div className="list">
+            {covers}
+          </div>
         </div>
       </div>
     );

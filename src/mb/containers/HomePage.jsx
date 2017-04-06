@@ -34,9 +34,7 @@ export default class HomePage extends React.Component {
       top250: () => actions.loadTop250(offset)
     };
     return (
-      <div className="mb-page mb-home-page">
-        <Home models={this.props.models} loaders={loaders} />
-      </div>
+      <Home models={this.props.models} loaders={loaders} />
     );
   }
 }
