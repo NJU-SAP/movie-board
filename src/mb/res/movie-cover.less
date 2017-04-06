@@ -1,0 +1,44 @@
+.movie-cover {
+  display: inline-block;
+
+  a {
+    vertical-align: top;
+    color: @mb-font-color;
+    width: 100%;
+    text-decoration: none;
+    background: lighten(@body-bg, 20%);
+
+    .image {
+      width: 100%;
+      height: 2.8rem;
+      background-color: #202020;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .title {
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: @font-size-small;
+    }
+
+    .rating {
+      height: 0.2rem;
+      font-size: @font-size-small;
+      text-align: center;
+
+      .rating-stars {
+        font-size: 12px;
+        font-size: @font-size-small;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie-cover {
+    width: 33.3% !important;
+  }
+}
