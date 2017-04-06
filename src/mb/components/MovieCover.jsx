@@ -3,34 +3,61 @@ import { Link } from 'react-router-dom';
 
 import RatingStars from './RatingStars';
 
-export default function MovieCover(props) {
-  return (
-    <li className="movie-cover">
-      <Link to={`/movie/${props.movie.id}`}>
-        <div
-          className="image"
-          style={{ backgroundImage: `url(${props.movie.images.medium})` }}
-          alt="movie cover"
-        />
-        <div className="title">
-          {props.movie.title}
-        </div>
-        <div className="rating">
-          <RatingStars stars={props.movie.rating.stars} average={props.movie.rating.average} />
-        </div>
-      </Link>
-    </li>
-  );
+class MovieCover extends React.Component {
+  static propTypes = {
+    movie: React.PropTypes.shape({
+      images: React.PropTypes.object.isRequired,
+      id: React.PropTypes.string.isRequired,
+      title: React.PropTypes.string.isRequired,
+      rating: React.PropTypes.shape({
+        average: React.PropTypes.number,
+        stars: React.PropTypes.string
+      })
+    }).isRequired
+  };
+
+  state = {
+    loaded: false
+  };
+
+  handleImageLoad = () => {
+    this.setState({
+      loaded: true
+    });
+  }
+
+  render() {
+    const { movie } = this.props;
+    const style = {
+      backgroundImage: `url(${movie.images.medium})`
+    };
+    return (
+      <li className="movie-cover">
+        <Link to={`/movie/${movie.id}`}>
+          <div
+            className="image"
+            style={this.state.loaded ? style : null}
+            alt="movie cover"
+          />
+          <img
+            src={`${movie.images.medium}`}
+            className="hidden-image"
+            style={{ display: 'none' }}
+            onLoad={this.handleImageLoad}
+          />
+          <div className="title">
+            {movie.title}
+          </div>
+          <div className="rating">
+            <RatingStars
+              stars={movie.rating.stars}
+              average={movie.rating.average}
+            />
+          </div>
+        </Link>
+      </li>
+    );
+  }
 }
 
-MovieCover.propTypes = {
-  movie: React.PropTypes.shape({
-    images: React.PropTypes.object.isRequired,
-    id: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
-    rating: React.PropTypes.shape({
-      average: React.PropTypes.number,
-      stars: React.PropTypes.string
-    })
-  }).isRequired
-};
+export default MovieCover;
