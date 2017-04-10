@@ -7,6 +7,11 @@ All components are designed and implemented only for this project.
 http://nic-movie-board.daoapp.io/
 > Since it's running on a free Docker host, I just can't guarantee it would be always working.
 
+## Screenshots
+
+![Homepage](./docs/home.png)
+
+![Detail page](./docs/detail.png)
 
 ## Major Packages Used in this project
 

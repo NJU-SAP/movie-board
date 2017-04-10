@@ -30,7 +30,7 @@ export default handleActions({
     return {
       ...state,
       top250: {
-        top250: state.top250.subjects.concat(action.payload.subjects)
+        subjects: state.top250.subjects.concat(action.payload.subjects)
       }
     };
   },
