@@ -32,17 +32,20 @@ module.exports = {
       }
     },
     stats: {
-      chunks: false,
+      // chunks: false,
     }
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
       'normalize.css': path.resolve(__dirname, './node_modules/normalize.css/normalize.css'),
-      'octicons.css': path.resolve(__dirname, './node_modules/octicons/octicons/octicons.css')
+      'octicons.css': path.resolve(__dirname, './node_modules/octicons/octicons/octicons.css'),
+      'react': path.resolve(__dirname, './node_modules/react/dist/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom/dist/react-dom')
     }
   },
   module: {
+    noParse: [/react/, /react-dom/],
     rules: [
       {
         test: /\.jsx?$/,
